@@ -1,0 +1,208 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+  --first-color: hsl(30, 16%, 50%);
+  --text-color: #fff;
+  --text-color-black: hsl(30, 8%, 15%);
+  --body-color: hsl(30, 100%, 98%);
+
+  --body-font: "Poppins", sans-serif;
+  --h3-font-size: 1rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --h3-font-size: 1.125rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 120px max-content;
+  align-content: center;
+  justify-content: center;
+}
+
+.gallery_card {
+  position: relative;
+  width: 208px;
+  height: 268px;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.gallery_img,
+.gallery_card::after,
+.gallery_data {
+  position: absolute;
+}
+
+.gallery_img {
+  inset: 0;
+  margin: auto;
+  transition: transform 0.3s;
+}
+
+.gallery_card::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0) 32%,
+    hsla(0, 0%, 0%, 0.3) 100%
+  );
+  top: 0;
+  z-index: 1;
+}
+
+.gallery_data {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+}
+
+.gallery_title,
+.gallery_subtitle {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.gallery_title {
+  font-size: var(--h3-font-size);
+}
+.gallery_subtitle {
+  font-size: var(--smaller-font-size);
+}
+
+.gallery_overflow {
+  position: relative;
+}
+
+.gallery_thumbnail {
+  position: relative;
+  width: 57px;
+  height: 57px;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery_thumbnail-img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.gallery-cards,
+.gallery-thumbs{
+  width: 220px;
+  order: 1;
+}
+
+.gallery-cards:hover .gallery_img{
+  transform: scale(1.1);
+}
+
+.gallery-thumbs{
+  height: 270px;
+}
+
+.swiper-slide-active .gallery_thumbnail{
+transform: translateX(1.55rem) scale(1.2);
+}
+
+.swiper-pagination-fraction{
+  font-size: var(--smaller-font-size);
+  letter-spacing: -1px;
+  color: var(--text-color);
+  margin-left: 35%;
+  margin-bottom: 5%;
+}
+
+.gallery-cards::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+@media screen and (max-width: 320px) {
+  .gallery {
+    grid-template-columns: 90px 145px;
+  }
+  .gallery_card{
+    width: 140px;
+    height: 195px;
+    margin-top: 25px;
+  }
+
+  .gallery_thumbnail{
+    width: 45px;
+    height: 45px;
+  }
+  .gallery-cards,
+  .gallery-thumbs{
+    width: 145px;
+  }
+  .gallery-thumbs{
+    height: 240px;
+  }
+  .swiper-pagination-fraction{
+    margin-left: 30%;
+    margin-bottom: 10%;
+    font-size: .700;
+  }
+}
+
+  @media screen and (min-width: 1024px) {
+    .gallery_card{
+      width: 220px;
+      height: 295px;
+    }
+  
+    .gallery_thumbnail{
+      width: 65px;
+      height: 65px;
+    }
+    .gallery-cards,
+    .gallery-thumbs{
+      width: 270px;
+    }
+    .gallery-thumbs{
+      margin-bottom: -10%;
+      height: 298px;
+    }
+    .swiper-pagination-fraction{
+      margin-left: 30%;
+      margin-bottom: 5%;
+    }
+  }
